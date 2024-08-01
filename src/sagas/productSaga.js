@@ -82,6 +82,7 @@ function* createProductReviewSaga(action) {
 function* listTopProductsSaga() {
     try {
         const { data } = yield call(axios.get, '/api/products/top');
+        console.log(data)
         yield put({ type: PRODUCT_TOP_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: PRODUCT_TOP_FAIL, payload: error.response?.data.message || error.message });
