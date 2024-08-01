@@ -1,7 +1,7 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux'
 import {thunk} from 'redux-thunk'
 // import createSagaMiddleware from 'redux-saga'
-import {composeWithDevTools} from 'redux-devtools-extension'
+import {composeWithDevTools} from '@redux-devtools/extension';
 //import rootSaga from './sagas/sagasFile'
 
 import { productListReducer, productDetailsReducer, productDeleteReducer, productCreateReducer, productUpdateReducer, productReviewCreateReducer, productTopRatedReducer } from './reducers/productRedcers'
