@@ -9,10 +9,8 @@ import { listTopProducts } from '../sagaActions/sagaProductAction'
 const ProductCarousel = () => {
     const dispatch = useDispatch()
     const productTopRated = useSelector(state=>state.productTopRated)
-    console.log(productTopRated)
     const {loading, error, products} = productTopRated
 
-    console.log(products) // suzen@inorbitech.com
     useEffect(()=>{
         dispatch(listTopProducts())
     }, [dispatch])
@@ -20,7 +18,7 @@ const ProductCarousel = () => {
   return loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message>
   : 
   (<Carousel pause='hover' className='bg-dark'>
-    {products.map(product=>(
+    {products.length!==0 && products.map(product=>(
         <Carousel.Item key={product._id}>
             <Link to={`/product/${product._id}`}>
                 <Image src={product.image} alt={product.name} fluid />
