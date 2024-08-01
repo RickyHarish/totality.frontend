@@ -1,7 +1,6 @@
 {
   "name": "front-end",
   "version": "0.1.0",
-  "proxy": "https://totality-backend-7vu8.onrender.com",
   "private": true,
   "dependencies": {
     "@redux-devtools/extension": "^3.3.0",

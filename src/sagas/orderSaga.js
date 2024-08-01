@@ -10,13 +10,15 @@ import {
     ORDER_LIST_REQUEST, ORDER_LIST_SUCCESS, ORDER_LIST_FAIL
 } from '../constants/orderConstants';
 
+const BACKEND_URL = process.env.API_URL
+
 // Order API call functions
 function* createOrderSaga(action) {
     try {
         const { order } = action.payload;
         const { userLogin: { userInfo } } = yield select(state => state);
         const config = { headers: { "Content-Type": "application/json", Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = yield call(axios.post, '/api/orders', order, config);
+        const { data } = yield call(axios.post, `${BACKEND_URL}/api/orders`, order, config);
         yield put({ type: ORDER_CREATE_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: ORDER_CREATE_FAIL, payload: error.response?.data.message || error.message });
@@ -28,7 +30,7 @@ function* getOrderDetailsSaga(action) {
         const { id } = action.payload;
         const { userLogin: { userInfo } } = yield select(state => state);
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = yield call(axios.get, `/api/orders/${id}`, config);
+        const { data } = yield call(axios.get, `${BACKEND_URL}/api/orders/${id}`, config);
         yield put({ type: ORDER_DETAILS_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: ORDER_DETAILS_FAIL, payload: error.response?.data.message || error.message });
@@ -40,7 +42,7 @@ function* payOrderSaga(action) {
         const { orderId, paymentResult } = action.payload;
         const { userLogin: { userInfo } } = yield select(state => state);
         const config = { headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = yield call(axios.put, `/api/orders/${orderId}/pay`, paymentResult, config);
+        const { data } = yield call(axios.put, `${BACKEND_URL}/api/orders/${orderId}/pay`, paymentResult, config);
         yield put({ type: ORDER_PAY_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: ORDER_PAY_FAIL, payload: error.response?.data.message || error.message });
@@ -52,7 +54,7 @@ function* deliverOrderSaga(action) {
         const { order } = action.payload;
         const { userLogin: { userInfo } } = yield select(state => state);
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = yield call(axios.put, `/api/orders/${order._id}/deliver`, {}, config);
+        const { data } = yield call(axios.put, `${BACKEND_URL}/api/orders/${order._id}/deliver`, {}, config);
         yield put({ type: ORDER_DELIVER_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: ORDER_DELIVER_FAIL, payload: error.response?.data.message || error.message });
@@ -63,7 +65,7 @@ function* listMyOrdersSaga() {
     try {
         const { userLogin: { userInfo } } = yield select(state => state);
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = yield call(axios.get, '/api/orders/myorders', config);
+        const { data } = yield call(axios.get, `${BACKEND_URL}/api/orders/myorders`, config);
         yield put({ type: ORDER_LIST_MY_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: ORDER_LIST_MY_FAIL, payload: error.response?.data.message || error.message });
@@ -74,7 +76,7 @@ function* listOrdersSaga() {
     try {
         const { userLogin: { userInfo } } = yield select(state => state);
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = yield call(axios.get, '/api/orders', config);
+        const { data } = yield call(axios.get, `${BACKEND_URL}/api/orders`, config);
         yield put({ type: ORDER_LIST_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: ORDER_LIST_FAIL, payload: error.response?.data.message || error.message });

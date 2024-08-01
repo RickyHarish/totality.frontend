@@ -11,11 +11,13 @@ import {
     USER_UPDATE_REQUEST, USER_UPDATE_SUCCESS, USER_UPDATE_FAIL
 } from '../constants/userConstants';
 
+const BACKEND_URL = process.env.API_URL
+
 // User API call functions
 function* loginSaga(action) {
     try {
         const { email, password } = action.payload;
-        const { data } = yield call(axios.post, '/api/users/login', { email, password });
+        const { data } = yield call(axios.post, `${BACKEND_URL}/api/users/login`, { email, password });
         yield put({ type: USER_LOGIN_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: USER_LOGIN_FAIL, payload: error.response?.data.message || error.message });
@@ -24,7 +26,7 @@ function* loginSaga(action) {
 
 function* logoutSaga() {
     try {
-        yield call(axios.post, '/api/users/logout');
+        yield call(axios.post, `${BACKEND_URL}/api/users/logout`);
         yield put({ type: USER_LOGOUT_SUCCESS });
     } catch (error) {
         // handle error (optional)
@@ -34,7 +36,7 @@ function* logoutSaga() {
 function* registerSaga(action) {
     try {
         const { name, email, password } = action.payload;
-        const { data } = yield call(axios.post, '/api/users', { name, email, password });
+        const { data } = yield call(axios.post, `${BACKEND_URL}/api/users`, { name, email, password });
         yield put({ type: USER_REGISTER_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: USER_REGISTER_FAIL, payload: error.response?.data.message || error.message });
@@ -46,7 +48,7 @@ function* getUserDetailsSaga(action) {
         const { id } = action.payload;
         const { userLogin: { userInfo } } = yield select(state => state);
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = yield call(axios.get, `/api/users/${id}`, config);
+        const { data } = yield call(axios.get, `${BACKEND_URL}/api/users/${id}`, config);
         yield put({ type: USER_DETAILS_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: USER_DETAILS_FAIL, payload: error.response?.data.message || error.message });
@@ -58,7 +60,7 @@ function* updateUserProfileSaga(action) {
         const { user } = action.payload;
         const { userLogin: { userInfo } } = yield select(state => state);
         const config = { headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = yield call(axios.put, `/api/users/profile`, user, config);
+        const { data } = yield call(axios.put, `${BACKEND_URL}/api/users/profile`, user, config);
         yield put({ type: USER_UPDATE_PROFILE_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: USER_UPDATE_PROFILE_FAIL, payload: error.response?.data.message || error.message });
@@ -69,7 +71,7 @@ function* listUsersSaga() {
     try {
         const { userLogin: { userInfo } } = yield select(state => state);
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = yield call(axios.get, '/api/users', config);
+        const { data } = yield call(axios.get, `${BACKEND_URL}/api/users`, config);
         yield put({ type: USER_LIST_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: USER_LIST_FAIL, payload: error.response?.data.message || error.message });
@@ -81,7 +83,7 @@ function* deleteUserSaga(action) {
         const { id } = action.payload;
         const { userLogin: { userInfo } } = yield select(state => state);
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        yield call(axios.delete, `/api/users/${id}`, config);
+        yield call(axios.delete, `${BACKEND_URL}/api/users/${id}`, config);
         yield put({ type: USER_DELETE_SUCCESS });
     } catch (error) {
         yield put({ type: USER_DELETE_FAIL, payload: error.response?.data.message || error.message });
@@ -93,7 +95,7 @@ function* updateUserSaga(action) {
         const { user } = action.payload;
         const { userLogin: { userInfo } } = yield select(state => state);
         const config = { headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = yield call(axios.put, `/api/users/${user._id}`, user, config);
+        const { data } = yield call(axios.put, `${BACKEND_URL}/api/users/${user._id}`, user, config);
         yield put({ type: USER_UPDATE_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: USER_UPDATE_FAIL, payload: error.response?.data.message || error.message });

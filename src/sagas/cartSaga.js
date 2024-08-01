@@ -4,11 +4,13 @@ import {
     CART_ADD_ITEM, CART_REMOVE_ITEM, CART_SAVE_SHIPPING_ADDRESS, CART_SAVE_PAYMENT_METHOD
 } from '../constants/cartConstants';
 
+const BACKEND_URL = process.env.API_URL
+
 // Cart API call functions
 function* addToCartSaga(action) {
     try {
         const { id, qty } = action.payload;
-        const { data } = yield call(axios.get, `/api/products/${id}`);
+        const { data } = yield call(axios.get, `${BACKEND_URL}/api/products/${id}`);
         yield put({
             type: CART_ADD_ITEM,
             payload: {
