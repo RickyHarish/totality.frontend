@@ -11,7 +11,7 @@ import {
     PRODUCT_TOP_REQUEST, PRODUCT_TOP_SUCCESS, PRODUCT_TOP_FAIL
 } from '../constants/productConstants';
 
-const BACKEND_URL = process.env.API_URL
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 
 // Product API call functions
 function* listProductsSaga(action) {

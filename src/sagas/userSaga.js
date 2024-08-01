@@ -11,7 +11,7 @@ import {
     USER_UPDATE_REQUEST, USER_UPDATE_SUCCESS, USER_UPDATE_FAIL
 } from '../constants/userConstants';
 
-const BACKEND_URL = process.env.API_URL
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 
 // User API call functions
 function* loginSaga(action) {

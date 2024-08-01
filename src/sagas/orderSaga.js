@@ -10,7 +10,7 @@ import {
     ORDER_LIST_REQUEST, ORDER_LIST_SUCCESS, ORDER_LIST_FAIL
 } from '../constants/orderConstants';
 
-const BACKEND_URL = process.env.API_URL
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 
 // Order API call functions
 function* createOrderSaga(action) {
