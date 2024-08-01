@@ -18,7 +18,7 @@ const CartScreen = ({match}) => {
     const dispatch = useDispatch()
 
     const cart = useSelector(state=>state.cart)
-    const {cartItems} = cart
+    const {cartItems} = cart || { cartItems: [] };
 
     useEffect(()=>{
       if(productId){
