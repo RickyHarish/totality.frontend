@@ -11,7 +11,7 @@ import {
   listProducts,
   deleteProduct,
   createProduct,
-} from '../actions/productActions'
+} from '../sagaActions/sagaProductAction'
 import { PRODUCT_CREATE_RESET } from '../constants/productConstants'
 import Meta from '../components/Meta'
 

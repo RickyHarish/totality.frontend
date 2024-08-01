@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-use-history'
 import Message from '../components/Message'
 // import Loader from '../components/Loader'
-import { addToCart, removeFromCart } from '../actions/cartActions'
+import { addToCart, removeFromCart } from '../sagaActions/sagaCartAction'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import Meta from '../components/Meta'
 

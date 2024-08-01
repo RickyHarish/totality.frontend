@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {useHistory} from 'react-router-use-history'
 import { Container, Nav, NavDropdown, Navbar } from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
-import { logout } from '../actions/userActions'
+import { logout } from '../sagaActions/sagaUserAction'
 import SearchBox from './SearchBox'
 // import { Route} from 'react-router-dom'
 

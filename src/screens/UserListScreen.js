@@ -5,7 +5,7 @@ import { Table, Button} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import { listUsers, deleteUser } from '../actions/userActions'
+import { listUsers, deleteUser } from '../sagaActions/sagaUserAction'
 import Meta from '../components/Meta'
 
 const UserListScreen = () => {

@@ -6,8 +6,8 @@ import {LinkContainer} from 'react-router-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import { getUserDetails, updateUserProfile} from '../actions/userActions'
-import {listMyOrders} from '../actions/orderActions'
+import { getUserDetails, updateUserProfile} from '../sagaActions/sagaUserAction'
+import {listMyOrders} from '../sagaActions/sagaOrderAction'
 import Meta from '../components/Meta'
 
 const ProfileScreen = () => {
