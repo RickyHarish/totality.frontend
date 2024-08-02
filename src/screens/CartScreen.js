@@ -15,15 +15,16 @@ const CartScreen = ({match}) => {
     const history = useHistory()
     const qty = location.search ? Number(location.search.split('=')[1]) : 1
     console.log(qty)
+    console.log(productId)
     const dispatch = useDispatch()
 
-    const cart = useSelector(state=>state.cart)
-    const {cartItems} = cart || { cartItems: [] };
+    const cart = useSelector(state => state.cart || { cartItems: [] });
+    const { cartItems } = cart;
+    // const cartItems = Array.isArray(cart.cartItems) ? cart.cartItems : [];
 
     useEffect(()=>{
       if(productId){
         dispatch(addToCart(productId, qty))
-
       }
     }, [dispatch, productId, qty])
 
@@ -45,9 +46,9 @@ const CartScreen = ({match}) => {
     <Row>
       <Col md={8}>
           <h1>Shopping Cart</h1>
-          {cartItems.length===0?<Message>Your Cart is Empty<Link to="/">Go Back</Link></Message>:(
+          {cartItems && cartItems.length===0?<Message>Your Cart is Empty<Link to="/">Go Back</Link></Message>:(
             <ListGroup variant='flush'>
-              {cartItems.map(item=>(
+              {cartItems && cartItems.map(item=>(
                 <ListGroup.Item key={item.product}>
                   <Row>
                     <Col md={2}>
@@ -81,14 +82,14 @@ const CartScreen = ({match}) => {
         <Card>
           <ListGroup variant='flush'>
             <ListGroup.Item>
-              <h2>Subtotal ({cartItems.reduce((acc, item)=> acc+item.qty, 0)}) items</h2>
-              {`\u20B9 `}{cartItems.reduce((acc, item)=>acc+item.qty* item.price, 0).toFixed(2)}
+              <h2>Subtotal ({ cartItems && cartItems.reduce((acc, item)=> acc+item.qty, 0)}) items</h2>
+              {`\u20B9 `}{ cartItems && cartItems.reduce((acc, item)=>acc+item.qty* item.price, 0).toFixed(2)}
             </ListGroup.Item> 
             <ListGroup.Item>
               <Button 
               className='btn-block' 
               type='button' 
-              disabled={cartItems.length===0}
+              disabled={cartItems && cartItems.length===0}
               onClick={checkoutHandler}
               >
                 Proceed To Checkout 

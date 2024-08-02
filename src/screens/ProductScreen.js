@@ -10,6 +10,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import {PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
 import Meta from '../components/Meta'
+// import { addToCart } from '../sagaActions/sagaCartAction'
 
 const ProductScreen = ({match}) => {
 

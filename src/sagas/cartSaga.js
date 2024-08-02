@@ -11,6 +11,7 @@ function* addToCartSaga(action) {
     try {
         const { id, qty } = action.payload;
         const { data } = yield call(axios.get, `${BACKEND_URL}/api/products/${id}`);
+        console.log(data)
         yield put({
             type: CART_ADD_ITEM,
             payload: {
@@ -24,7 +25,7 @@ function* addToCartSaga(action) {
         });
         localStorage.setItem('cartItems', JSON.stringify(yield select(state => state.cart.cartItems)));
     } catch (error) {
-        // handle error
+        console.log({"error vasthundi": error})
     }
 }
 
@@ -35,7 +36,8 @@ function* removeFromCartSaga(action) {
       yield put({ type: CART_REMOVE_ITEM, payload: action.payload });
       localStorage.setItem('cartItems', JSON.stringify(yield select(state => state.cart.cartItems)));
   } catch (error) {
-      // handle error
+      
+    console.log({"Removing Cart Error": error})
   }
 }
 
@@ -59,8 +61,8 @@ function* savePaymentMethodSaga(action) {
 
 // Watchers
 export function* watchCartActions() {
-  yield takeEvery('CART_ADD_ITEM_REQUEST', addToCartSaga);
-  yield takeEvery('CART_REMOVE_ITEM_REQUEST', removeFromCartSaga);
-  yield takeEvery('CART_SAVE_SHIPPING_ADDRESS_REQUEST', saveShippingAddressSaga);
-  yield takeEvery('CART_SAVE_PAYMENT_METHOD_REQUEST', savePaymentMethodSaga);
+  yield takeEvery('CART_ADD_ITEM', addToCartSaga);
+  yield takeEvery('CART_REMOVE_ITEM', removeFromCartSaga);
+  yield takeEvery('CART_SAVE_SHIPPING_ADDRESS', saveShippingAddressSaga);
+  yield takeEvery('CART_SAVE_PAYMENT_METHOD', savePaymentMethodSaga);
 }
