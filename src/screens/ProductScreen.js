@@ -65,7 +65,7 @@ const ProductScreen = ({match}) => {
         <Meta title={product.name} />
         <Row >
             <Col md={5} style={{backgroundColor:"transparent", border:"solid 1px lightgrey", borderRadius:"10px"}}>
-                <Image src={product.image} alt={product.name} fluid />
+                <Image style={{borderRadius:"20px"}} src={product.image} alt={product.name} fluid />
             </Col>
             <Col md={3} style={{border:"solid 1px lightgrey", borderRadius:"10px", margin:"2px"}}>
                 <ListGroup style={{backgroundColor:"transparent"}} variant='flush'>
