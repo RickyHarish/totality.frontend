@@ -26,3 +26,7 @@
 1. Clone the repository:
    ```bash
    git clone https://github.com/RickyHarish/totality.frontend.git
+2. cd front-end => use npm install
+3. .env => open .env file and add "REACT_APP_BACKEND_URL = https://totality-backend-8mc6.onrender.com"
+4. npm run build => build the project with this command.
+5. npm start=> this command will start our project. Finally we can able to get all the functionalities
