@@ -33,7 +33,7 @@ const LoginScreen = () => {
     const submitHandler=(e)=>{
         e.preventDefault()
         dispatch(login(email, password))
-        console.log(error)
+        
     }
 
 
