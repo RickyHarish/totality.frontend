@@ -1,3 +1,4 @@
+
 # totality.frontend is for Claw frontend development
 
 **Claw** is a modern React-based application for managing and browsing products. This frontend project is designed to work with a Node.js backend and integrates various features to enhance user experience.
@@ -30,3 +31,4 @@
 3. .env => open .env file and add "REACT_APP_BACKEND_URL = https://totality-backend-8mc6.onrender.com"
 4. npm run build => build the project with this command.
 5. npm start=> this command will start our project. Finally we can able to get all the functionalities
+6. to login as admin email: admin@example.com, password: 123456
