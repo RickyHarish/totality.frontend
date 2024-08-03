@@ -30,7 +30,7 @@ const HomeScreen = () => {
 
 
   return (
-    <>
+    <div>
     <Meta />
     {!keyword ? <ProductCarousel />: <Link to='/' className='btn btn-light'>Go Back</Link>}
       <h1>Latest Products</h1>
@@ -46,7 +46,7 @@ const HomeScreen = () => {
       <Paginate pages={pages} page={page} keyword={keyword ? keyword:''} />
       </>
       }
-    </>
+    </div>
   )
 }
 

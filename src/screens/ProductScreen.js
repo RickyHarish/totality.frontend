@@ -58,47 +58,47 @@ const ProductScreen = ({match}) => {
  //  const product =  products.find(p=> p._id===id)
     
   return (
-    <div>
+    <div style={{backgroundColor:"transparent"}}>
         <Link className='btn btn-light my-3' to='/'>Go Back</Link>
         {loading?<Loader />:error?<Message variant="danger"/>:
         <>
         <Meta title={product.name} />
-        <Row>
-            <Col md={6}>
+        <Row >
+            <Col md={5} style={{backgroundColor:"transparent", border:"solid 1px lightgrey", borderRadius:"10px"}}>
                 <Image src={product.image} alt={product.name} fluid />
             </Col>
-            <Col md={3}>
-                <ListGroup variant='flush'>
-                    <ListGroup.Item>
+            <Col md={3} style={{border:"solid 1px lightgrey", borderRadius:"10px", margin:"2px"}}>
+                <ListGroup style={{backgroundColor:"transparent"}} variant='flush'>
+                    <ListGroup.Item style={{backgroundColor:"transparent"}}>
                         <h3>{product.name}</h3>
                     </ListGroup.Item>
-                    <ListGroup.Item> 
+                    <ListGroup.Item style={{backgroundColor:"transparent"}}> 
                         <Rating  value={product.rating} text={` ${product.numReviews} reviews`}/>
                     </ListGroup.Item>
-                    <ListGroup.Item>
+                    <ListGroup.Item style={{backgroundColor:"transparent"}}>
                         Price: {`\u20B9 `}{product.price}
                     </ListGroup.Item>
-                    <ListGroup.Item>
+                    <ListGroup.Item style={{backgroundColor:"transparent"}}>
                         Description: {product.description}
                     </ListGroup.Item>
                     </ListGroup>
             </Col>
-            <Col md={3}>
-                <Card>
-                    <ListGroup variant='flush'>
-                        <ListGroup.Item>
-                            <Row>
-                                <Col>
+            <Col md={3} >
+                <Card style={{backgroundColor:"transparent"}}>
+                    <ListGroup style={{backgroundColor:"transparent"}}  variant='flush'>
+                        <ListGroup.Item style={{backgroundColor:"transparent"}}>
+                            <Row style={{backgroundColor:"transparent"}}>
+                                <Col style={{backgroundColor:"transparent"}}>
                                     Price: 
                                 </Col>
-                                <Col>
+                                <Col style={{backgroundColor:"transparent"}}>
                                 <strong>{`\u20B9 `}{product.price}</strong>
                                 </Col>
                             </Row>
                         </ListGroup.Item>
                     </ListGroup>
                     <ListGroup variant='flush'>
-                        <ListGroup.Item>
+                        <ListGroup.Item style={{backgroundColor:"transparent"}}>
                             <Row>
                                 <Col>
                                     Status: 
@@ -109,7 +109,7 @@ const ProductScreen = ({match}) => {
                             </Row>
                         </ListGroup.Item>
                         {product.countInStock >0 && (
-                            <ListGroup.Item>
+                            <ListGroup.Item style={{backgroundColor:"transparent"}}>
                                 <Row>
                                     <Col>Qty</Col>
                                     <Col>
@@ -123,7 +123,7 @@ const ProductScreen = ({match}) => {
                             </ListGroup.Item>
                         )}
                         <ListGroup variant='flush'>
-                        <ListGroup.Item>
+                        <ListGroup.Item style={{backgroundColor:"transparent"}}>
                             <Button 
                             disabled={product.countInStock===0} 
                             className='btn-block' 
@@ -138,8 +138,8 @@ const ProductScreen = ({match}) => {
                 </Card>
             </Col>
         </Row>
-        <Row>
-            <Col md={6}>
+        <Row >
+            <Col md={6} style={{border:"solid 1px lightgrey", borderRadius:"10px", margin:"5px"}}>
                 <h2>Reviews</h2>
                 {product.reviews.length === 0 && <Message>No Reviews</Message>}
                 <ListGroup variant='flush'>
@@ -151,7 +151,7 @@ const ProductScreen = ({match}) => {
                             <p>{review.comment}</p>
                         </ListGroup.Item>
                     ))}
-                    <ListGroup.Item>
+                    <ListGroup.Item style={{backgroundColor:"transparent"}}>
                         <h2>Write a Customer Review</h2>
                         {errorProductReview && <Message variant='danger'>{errorProductReview}</Message>}
                         {userInfo ? (
@@ -173,7 +173,7 @@ const ProductScreen = ({match}) => {
                                 <Form.Label>
                                     Comment
                                 </Form.Label>
-                                <Form.Control onChange={(e)=>setComment(e.target.value)} as='textarea' row='3' value={comment}>
+                                <Form.Control  onChange={(e)=>setComment(e.target.value)} as='textarea' row='3' value={comment}>
 
                                 </Form.Control>
                             </Form.Group>

@@ -46,8 +46,10 @@ const RegisterScreen = () => {
 
 
   return (
+    <div style={{backgroundColor:"ButtonShadow", borderRadius:"10px", border:"solid 0.2px grey"}}>
+        <h1 style={{textAlign:"center", color:"CaptionText", fontFamily:"inherit", fontWeight:"bold", fontStyle:"oblique", textDecoration:"underline"}}>SHOPPIE<span style={{color:"GrayText"}}>.in</span></h1>
     <FormContainer>
-      <h1>Sign Up</h1>
+      <h1 style={{color:"Highlight"}}>Sign Up</h1>
       <Meta title='Register' />
       {error&&<Message variant='danger'>{error}</Message>}
       {message && <Message variant='danger'>{message}</Message>}
@@ -76,7 +78,7 @@ const RegisterScreen = () => {
                 
             </Form.Control>
         </Form.Group>
-        <Button type='submit' variant='primary'>
+        <Button style={{marginTop:"10px", width:"100%"}} type='submit' variant='primary'>
             Register
         </Button>
         
@@ -87,6 +89,7 @@ const RegisterScreen = () => {
         </Col>
       </Row>
     </FormContainer>
+    </div>
   )
 }
 

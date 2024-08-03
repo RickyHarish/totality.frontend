@@ -57,3 +57,74 @@ h2{
     font-size: 2.5vw;
   }
 }
+
+
+/* Styles for the Row with motion background */
+.motion-background-row {
+  background: linear-gradient(-45deg, #f8e1e7, #f3d1f4, #d1e7f8, #d1f8e8);
+  background-size: 400% 400%;
+  animation: gradientMotion 15s ease infinite;
+  padding: 20px;
+  color: #333;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes gradientMotion {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.fade-up {
+  animation: fadeInUp 1.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  0% {
+      transform: translateY(20px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+
+/* Styles for the Product Card with light colors and shadow */
+.product-card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.product-card-title {
+  color: #333;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.product-card-price {
+  color: #555;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.product-card-rating {
+  margin-bottom: 10px;
+  color: #ff9f1a;
+}

@@ -4,7 +4,7 @@ import React from 'react'
 
 const Rating = ({value, text, color='#f8e825'}) => {
   return (
-    <div className='rating'>
+    <div className='rating' style={{backgroundColor:"transparent"}}>
       <span>
         <i style={{color}}
          className={

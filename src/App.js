@@ -23,7 +23,7 @@ const App=()=> {
   return (
     <Router>
     <Header />
-    <main className='py-3'>
+    <main className='py-3 motion-background-row'>
       <Container>
         <Routes>
           <Route path='/register' element={<RegisterScreen />} />

@@ -25,7 +25,7 @@ function* addToCartSaga(action) {
         });
         localStorage.setItem('cartItems', JSON.stringify(yield select(state => state.cart.cartItems)));
     } catch (error) {
-        console.log({"error vasthundi": error})
+        console.log({"Adding Cart Error": error})
     }
 }
 
@@ -46,7 +46,7 @@ function* saveShippingAddressSaga(action) {
       yield put({ type: CART_SAVE_SHIPPING_ADDRESS, payload: action.payload });
       localStorage.setItem('shippingAddress', JSON.stringify(action.payload));
   } catch (error) {
-      // handle error
+    console.log({"Shipping address Error": error})
   }
 }
 
@@ -55,7 +55,7 @@ function* savePaymentMethodSaga(action) {
       yield put({ type: CART_SAVE_PAYMENT_METHOD, payload: action.payload });
       localStorage.setItem('paymentMethod', JSON.stringify(action.payload));
   } catch (error) {
-      // handle error
+    console.log({"Payment Method Error": error})
   }
 }
 

@@ -39,7 +39,7 @@ const OrderListScreen = () => {
     
 
   return (
-    <>
+    <div style={{backgroundColor:"transparent"}}>
     <Meta title='Orders' />
       <h1>Orders</h1>
       {loading? <Loader/>: error? <Message variant='danger'>{error}</Message>:(
@@ -81,7 +81,7 @@ const OrderListScreen = () => {
           </tbody>
         </Table>
       )}  
-    </>
+    </div>
   )
 }
 

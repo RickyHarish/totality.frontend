@@ -5,6 +5,9 @@ import { Container, Nav, NavDropdown, Navbar } from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import { logout } from '../sagaActions/sagaUserAction'
 import SearchBox from './SearchBox'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons'
+
 // import { Route} from 'react-router-dom'
 
 
@@ -20,14 +23,14 @@ const Header = () => {
   }
   return (
     <header>
-      <Navbar expand="lg" bg='dark' variant='dark' collapseOnSelect>
+      <Navbar style={{backgroundColor:"cadetblue"}} expand="lg" variant='dark' collapseOnSelect>
       <Container>
         <LinkContainer to='/' >
-          <Navbar.Brand >SHOPPIE</Navbar.Brand>
+          <Navbar.Brand >SHOPPIE.in <FontAwesomeIcon icon={faShoppingBag} style={{ marginRight: '10px', fontSize: '1.5rem' }} /></Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">         
-          <Nav className="ml-auto justify-content-right">
+          <Nav className="ms-auto">
             <LinkContainer to='/cart'>
               <Nav.Link><i className='fas fa-shopping-cart'></i>Cart</Nav.Link>
             </LinkContainer>

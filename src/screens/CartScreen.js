@@ -41,7 +41,7 @@ const CartScreen = ({match}) => {
     }
 
   return (
-    <>
+    <div style={{backgroundColor:"transparent", height:"100vh", width:"100%", padding:"10px"}}>
     <Meta title='Shopping Cart'/>
     <Row>
       <Col md={8}>
@@ -99,7 +99,7 @@ const CartScreen = ({match}) => {
         </Card>
       </Col>
     </Row>
-    </>
+    </div>
   )
 }
 
