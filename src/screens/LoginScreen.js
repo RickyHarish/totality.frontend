@@ -43,7 +43,7 @@ const LoginScreen = () => {
     <h1 style={{textAlign:"center", color:"CaptionText", fontFamily:"inherit", fontWeight:"bold", fontStyle:"oblique", textDecoration:"underline"}}>SHOPPIE<span style={{color:"GrayText"}}>.in</span></h1>
     <FormContainer>
       <h1 style={{color:"Highlight"}}>Sign In</h1>
-      {error&&<Message variant='danger'>{error}</Message>}
+      {error&&<Message variant='danger'>Invalid User Details</Message>}
       {loading&&<Loader/>}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId='email'>
