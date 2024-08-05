@@ -33,7 +33,7 @@ const HomeScreen = () => {
     <div>
     <Meta />
     {!keyword ? <ProductCarousel />: <Link to='/' className='btn btn-light'>Go Back</Link>}
-      <h1>Latest Products</h1>
+      <h1>CLAW Enterprizes Latest Products</h1>
       {loading ? <Loader />:error? <Message variant="danger" >{error}</Message>:
       <>
       <Row>

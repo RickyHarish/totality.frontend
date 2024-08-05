@@ -26,7 +26,7 @@ const Header = () => {
       <Navbar style={{backgroundColor:"cadetblue"}} expand="lg" variant='dark' collapseOnSelect>
       <Container>
         <LinkContainer to='/' >
-          <Navbar.Brand >SHOPPIE.in <FontAwesomeIcon icon={faShoppingBag} style={{ marginRight: '10px', fontSize: '1.5rem' }} /></Navbar.Brand>
+          <Navbar.Brand >CLAW-SHOPPIE.in <FontAwesomeIcon icon={faShoppingBag} style={{ marginRight: '10px', fontSize: '1.5rem' }} /></Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">         

@@ -40,7 +40,7 @@ const LoginScreen = () => {
   return (
     <div style={{backgroundColor:"ButtonShadow", borderRadius:"10px", border:"solid 0.2px grey"}}>
     <Meta title='login' />
-    <h1 style={{textAlign:"center", color:"CaptionText", fontFamily:"inherit", fontWeight:"bold", fontStyle:"oblique", textDecoration:"underline"}}>SHOPPIE<span style={{color:"GrayText"}}>.in</span></h1>
+    <h1 style={{textAlign:"center", color:"CaptionText", fontFamily:"inherit", fontWeight:"bold", fontStyle:"oblique", textDecoration:"underline"}}>CLAW-SHOPPIE<span style={{color:"GrayText"}}>.in</span></h1>
     <FormContainer>
       <h1 style={{color:"Highlight"}}>Sign In</h1>
       {error&&<Message variant='danger'>Invalid User Details</Message>}
